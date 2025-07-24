@@ -16,7 +16,7 @@ from datetime import datetime
 
 # =====================
 
-df_csv = pd.read_csv("C:\\Users\\riskf\\OneDrive\\Documents\\Courses\\Taken\\Python - Machine Learning Model Deployment with Streamlit\\12_dashboard_capstone\\data\\quarterly_canada_population.csv")
+df_csv = pd.read_csv("data/quarterly_canada_population.csv")
 
 
 # 🔗 Load Dataset
