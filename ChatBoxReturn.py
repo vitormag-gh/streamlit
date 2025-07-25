@@ -12,7 +12,14 @@ from google import genai
 from google.genai import types
 
 # --- Load Google credentials from Streamlit secrets ---
-service_account_info = st.secrets["google_service_account"]
+# Convert SecretsDict to native dict
+service_account_info = dict(st.secrets["google_service_account"])
+
+# Write it to a temp JSON file
+with tempfile.NamedTemporaryFile(mode="w+", delete=False, suffix=".json") as tmp_file:
+    json.dump(service_account_info, tmp_file)
+    tmp_file_path = tmp_file.name
+
 
 #os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r'C:\Users\riskf\OneDrive\Documents\Courses\Taken\Python - LLMs with Google Cloud and Python\northern-timer-466513-s6-746dc06ba27d.json'
 
