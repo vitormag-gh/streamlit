@@ -22,12 +22,15 @@ with tempfile.NamedTemporaryFile(mode="w+", delete=False, suffix=".json") as tmp
 # --- Set env var for Google client to pick up ---
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = tmp_file_path
 
+
+
 # --- Initialize Gemini client ---
 client = genai.Client(
     vertexai=True,
     project=service_account_info["project_id"],
     location="global"
 )
+
 
 # --- App title ---
 st.title("🛍️ Gemini Return Policy Chatbot")
