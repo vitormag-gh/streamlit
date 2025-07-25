@@ -53,14 +53,22 @@ Make sure to confirm that the item is BOTH unused and has been purchased in the 
         )
     ]
 
-# --- User input ---
-user_input = st.text_input("You:", key="input")
+# --- Input key workaround to avoid mutation error ---
+if "user_input" not in st.session_state:
+    st.session_state.user_input = ""
 
-if st.button("Send") and user_input:
-    # Add user input to history
+# --- Input form for message ---
+with st.form("chat_form", clear_on_submit=True):
+    user_input = st.text_input("You:", key="user_input")
+    submitted = st.form_submit_button("Send")
+
+# --- On Send button pressed ---
+if submitted and user_input:
+    # Add user message
     st.session_state.chat_history.append(
         types.Content(role="user", parts=[types.Part.from_text(text=user_input)])
     )
+
 
     # Gemini config
     config = types.GenerateContentConfig(
