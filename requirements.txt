@@ -7,3 +7,4 @@ numpy
 matplotlib
 streamlit
 google-genai
+joblib
