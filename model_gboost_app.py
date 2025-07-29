@@ -5,10 +5,13 @@ from joblib import load
 
 @st.cache_resource(show_spinner="Loading model...")
 def load_model():
-    path= f'model/gboost_pipe.joblib'
-    pipe = load(path)
-
-    return pipe 
+    try:
+        path = "model/gboost_pipe.joblib"
+        pipe = load(path)
+        return pipe
+    except Exception as e:
+        st.error(f"Failed to load model from `{path}`. Error: {e}")
+        raise
 
 @st.cache_data(show_spinner="Making a prediction...")
 def make_prediction(_pipe, X_pred):
