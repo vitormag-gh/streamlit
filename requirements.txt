@@ -7,5 +7,5 @@ scikit-learn==1.2.2
 numpy
 matplotlib
 joblib
-xgboost
+pip==25.1.1
 google-genai
