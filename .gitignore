@@ -1,6 +1,7 @@
 # Local-only test script
 ChatBoxReturn_Local.py
 generate_hash.py
+model_gboost_training.py
 
 # JSON credential file too (for safety)
 *.json
