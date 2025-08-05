@@ -2,6 +2,7 @@
 ChatBoxReturn_Local.py
 generate_hash.py
 model_gboost_training.py
+.streamlit/secrets.toml
 
 # JSON credential file too (for safety)
 *.json
